@@ -1,15 +1,36 @@
-.nav-items {
+//Navigation bar customisation.
+.nav_container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 3em;
   list-style: none;
-  color: rgb(92, 9, 175);
-  font-size: 1.5em;
-  background-color: rgb(27, 27, 27);
+  font-size: 1.4em;
+  background-color: #2f0675;
   height: 2.5em;
-  padding-left: 2em;
+  padding: 0 2em 0 2em;
   a {
     text-decoration: none;
+    color: rgb(211, 204, 219);
+    font-weight: 600;
   }
+}
+
+.nav-item {
+  display: flex;
+  gap: 1.5em;
+}
+//Customising search box.
+.searchBox {
+  width: 20rem;
+  border-radius: 20px !important;
+  height: 1.6em !important;
+}
+.searchBox:hover {
+  width: 22rem;
+  border-radius: 20px !important;
+  height: 1.6em !important;
+}
+//Handling placeholder font size.
+input::-webkit-input-placeholder {
+  font-size: 15px;
 }

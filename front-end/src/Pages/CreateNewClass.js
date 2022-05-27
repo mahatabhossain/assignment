@@ -38,7 +38,7 @@ const CreateNewClass = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newClass }),
     };
-    //POST request for send data into database.
+    //POST request to send data into database.
     axios
       .post("http://localhost:8000/class", newClass)
       .then((response) => {
