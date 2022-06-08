@@ -15,9 +15,7 @@ const navbar = () => {
           <Link to="/signin">Login</Link>
         </li>
       </div>
-      <div>
-        <SearchBox />
-      </div>
+      <div>{/* <SearchBox /> */}</div>
     </div>
   );
 };
