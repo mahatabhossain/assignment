@@ -46,7 +46,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h2>Weather data </h2>
+      <h2 className="weather_header">Fetch weather data </h2>
       <div>
         <TextField
           fullWidth
@@ -68,16 +68,13 @@ const Home = () => {
       {console.log(weatherData)}
       {weatherData ? (
         <Card sx={{ maxWidth: 1200 }} className="card_container">
-          <CardHeader
-            title={weatherData?.request?.query}
-            // subheader={weatherData?.location?.localtime}
-          />
+          <CardHeader title={weatherData?.request?.query} />
           <Typography
             className="card_container"
             variant="body2"
             color="text.secondary"
           >
-            Date & Time:&nbsp;&nbsp;{weatherData?.location?.localtime}
+            Date & Time:&nbsp;&nbsp; {weatherData?.location?.localtime}
           </Typography>
           <img
             className="weather_icon"
@@ -93,6 +90,7 @@ const Home = () => {
               variant="body2"
               color="text.secondary"
             >
+              Weather:&nbsp;&nbsp;
               {weatherData?.current?.weather_descriptions?.length
                 ? weatherData?.current?.weather_descriptions[0]
                 : ""}

@@ -1,7 +1,9 @@
 .container {
   text-align: center;
 }
-
+.weather_header {
+  font-weight: 1000;
+}
 .button_container {
   margin-top: 10px;
 }
