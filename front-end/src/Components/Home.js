@@ -65,7 +65,7 @@ const Home = () => {
           Historical Weather
         </Button>
       </div>
-      {console.log(weatherData)}
+      {/* {console.log(weatherData)} */}
       {weatherData ? (
         <Card sx={{ maxWidth: 1200 }} className="card_container">
           <CardHeader title={weatherData?.request?.query} />
