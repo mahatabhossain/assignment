@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import "./App.scss";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import TeacherLogin from "./Components/TeacherLogin";
-import StudentLogin from "./Components/StudentLogin";
 import NavBar from "./Components/NavBar";
-import CreateClass from "./Pages/CreateNewClass";
-import SignUp from "./Components/SignUp";
-import Signin from "./Components/Signin";
+import Users from "./Components/Users";
+import Books from "./Components/Books";
+import Orders from "./Components/Orders";
 import Home from "./Components/Home";
-import SearchBox from "./Components/SearchBox";
+import SignIn from "./Components/SignIn";
+import SignUp from "./Components/SignUp";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -16,9 +15,16 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<Signin />} />
       </Routes>
+
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

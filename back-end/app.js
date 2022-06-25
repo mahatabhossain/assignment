@@ -1,34 +1,29 @@
 const express = require("express");
-const mongoose = require("mongoose");
+//"cors" ENABLE US TO ACCESS RESOURSES FROM DIFFERENT ORIGIN
 const cors = require("cors");
-const path = require("path");
+
+//*****************IMPORTING ROUTERS "routers" DIRECTORY*****************
+const bookRouter = require("./routers/bookRouter");
+const orderRouter = require("./routers/orderRouter");
+const searchRouter = require("./routers/searchRouter");
+const signUpRouter = require("./routers/signUpRouter");
+const loginRouter = require("./routers/loginRouter");
+
+//CALLING "express()" TO START NEW EXPRESS APPLICATION
 const app = express();
-const port = 8000;
 
+//"cors()" enables you to access a resource from a different origin.
 app.use(cors());
-app.use(express.json()); // allows us to accept the data in json format.
 
-// DATABASE CONNECTION
-mongoose.connect(
-  "mongodb+srv://myNewDatabase:Mahatab123@cluster0.zhoox.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+//"express.json()" allows us to accept the data in json format.
+app.use(express.json());
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", function () {
-  console.log("database connected successfully");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "front-end", "build", "index.html"));
-  });
-});
+//************************ROUTER ENDPOINTS*******************************
+app.use("/api/v1/user", signUpRouter);
+app.use("/api/v1/book", bookRouter);
+app.use("/api/v1/order", orderRouter);
+app.use("/api/v1/book/search", searchRouter);
+app.use("/api/v1/signup", signUpRouter);
+app.use("/api/v1/signin", loginRouter);
 
-//ROUTER
-app.use("/", require("./router"));
-//------------------------------------------------------
-
-//SERVER
-app.listen(port, () => console.log(`Server running on ${port} port`));
+module.exports = app;

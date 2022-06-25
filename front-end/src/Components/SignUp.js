@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from "react";
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -13,22 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import axios from "axios";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href=""></Link> {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import { userSignUp } from "../api/index";
 
 const theme = createTheme();
 
@@ -47,24 +31,20 @@ export default function SignUp() {
   const passwordHandler = (event) => setPassword(event.target.value);
 
   // ******************** SIGN UP HANDLER *******************************
+  const signUpData = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: password,
+  };
   const signUpHandler = (event) => {
     event.preventDefault();
-    const signUpData = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password,
-    };
-    console.log(signUpData);
-    // Calling SIGN UP API
-    axios
-      .post("http://localhost:8000/signup", signUpData)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // Calling sign up api
+    userSignUp(signUpData);
+    // setFirstName("");
+    // setLastName("");
+    // setEmail("");
+    // setPassword("");
   };
 
   return (
@@ -169,7 +149,6 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
