@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -25,7 +26,12 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const passwordHandler = (event) => setPassword(event.target.value);
 
-  // const nav = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [showSnakbar, setShowSnakebar] = useState(false);
+  const [snakbarMessage, setSnakbarMessage] = useState("");
+
+  // Navigate operaton
+  const nav = useNavigate();
 
   //HANDLING FORM DATA
   const signInData = {
@@ -33,11 +39,27 @@ export default function SignIn() {
     password: password,
   };
 
-  const signInHandler = (event) => {
+  const signInHandler = async (event) => {
+    setLoading(true);
     event.preventDefault();
     // CALLING SIGN IN API
-    console.log("Form data", signInData);
-    userSignIn(signInData);
+    const { data } = await userSignIn(signInData);
+    console.log(data.status);
+    if (data?.status) {
+      setLoading(false);
+      setSnakbarMessage("Succesfully logged in");
+      setShowSnakebar(true);
+      setEmail("");
+      setPassword("");
+      nav("/orders");
+    } else {
+      setLoading(false);
+      setSnakbarMessage("Unable to login");
+      setShowSnakebar(true);
+      setEmail("");
+      setPassword("");
+      nav("/signin");
+    }
   };
 
   return (
@@ -98,8 +120,17 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              {loading ? "Loggin in..." : "Login"}
             </Button>
+            {showSnakbar ? (
+              <Snackbar
+                open={true}
+                message={snakbarMessage}
+                autoHideDuration={6000}
+              />
+            ) : (
+              ""
+            )}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
