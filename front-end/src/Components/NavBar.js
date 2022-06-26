@@ -1,40 +1,3 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// // import { SearchIcon } from "@react-md/material-icons";
-// // import SearchBar from "material-ui-search-bar";
-// import "../Styles/nav-bar.css";
-// const navbar = () => {
-//   return (
-//     <div className="nav-items">
-//       <div className="nav-item">
-//         <li>
-//           <Link to="/">Home</Link>
-//         </li>
-//         <li>
-//           <Link to="/users">Users</Link>
-//         </li>
-//         <li>
-//           <Link to="/books">Books</Link>
-//         </li>
-//         <li>
-//           <Link to="/orders">Orders</Link>
-//         </li>
-//       </div>
-//       {/* <div className="search_container">
-//         <SearchBar className="search_bar" />
-//       </div> */}
-
-//       {/* <div className="nav-item">
-//         <li>
-//           <Link to="/login">Login</Link>
-//         </li>
-//         <li>
-//           <Link to="/signUp">Sign Up</Link>
-//         </li>
-//       </div> */}
-//     </div>
-//   );
-// };
 // export default navbar;
 import * as React from "react";
 import { Link } from "react-router-dom";
@@ -59,10 +22,7 @@ import "../Styles/nav-bar.css";
 const pages = [
   { name: "Home", link: "/" },
   { name: "Users", link: "/users" },
-  { name: "Books", link: "/books" },
-  { name: "Orders", link: "/orders" },
 ];
-// const pages = ["Home", "Users", "Books", "Orders"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -95,7 +55,7 @@ const ResponsiveAppBar = () => {
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
             <Link className="brandig_style" to="/">
-              BOOK STORE
+              Klutchh Movie
             </Link>
           </Typography>
 

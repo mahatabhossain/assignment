@@ -55,9 +55,7 @@ export const searchBook = async (searchInput) => {
 //========================// SIGN UP //========================//
 export const userSignUp = async (signUpData) => {
   try {
-    await axios.post(`${BASE_URL}/api/v1/signup`, signUpData).then((res) => {
-      console.log(res);
-    });
+    return await axios.post(`${BASE_URL}/api/v1/signup`, signUpData);
   } catch (err) {
     console.log(err);
   }

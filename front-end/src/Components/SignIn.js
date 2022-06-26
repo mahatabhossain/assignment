@@ -51,7 +51,7 @@ export default function SignIn() {
       setShowSnakebar(true);
       setEmail("");
       setPassword("");
-      nav("/orders");
+      nav("/users");
     } else {
       setLoading(false);
       setSnakbarMessage("Unable to login");

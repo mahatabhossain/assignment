@@ -19,20 +19,20 @@ const Home = () => {
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/books.jpeg"
+              image="/static/images/download.jpeg"
               alt="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Explore User
+                Explore Movies
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                You can explore User section by click on the button.
+                You can explore movies section by click on the button.
               </Typography>
             </CardContent>
             <CardActions>
               <Button size="small">
-                <Link to="/users">Explore Users</Link>
+                <Link to="/">Explore movies</Link>
               </Button>
             </CardActions>
           </Card>
@@ -42,20 +42,20 @@ const Home = () => {
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/books.jpeg"
+              image="/static/images/game.jpeg"
               alt="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Explore Books
+                Explore Web series
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                You can explore books section by click on the button.
+                You can explore web series section by click on the button.
               </Typography>
             </CardContent>
             <CardActions>
               <Button size="small">
-                <Link to="/books">Explore Books</Link>
+                <Link to="/">Explore Web series</Link>
               </Button>
             </CardActions>
           </Card>
@@ -65,20 +65,20 @@ const Home = () => {
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/books.jpeg"
+              image="/static/images/lio.jpeg"
               alt="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Explore Orders
+                Explore Actors
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                You can explore Orders section by click on the button.
+                You can explore actors section by click on the button.
               </Typography>
             </CardContent>
             <CardActions>
               <Button size="small">
-                <Link to="/orders">Explore Orders</Link>
+                <Link to="/users">Explore Actors</Link>
               </Button>
             </CardActions>
           </Card>

@@ -2,7 +2,15 @@ const signUpModel = require("../models/signup.model");
 
 //=======================// CREATE USER (SIGN UP) //=======================
 exports.userSignUp = async (req, res) => {
-  const signup = new signUpModel(req.body);
+  const { firstName, lastName, email, password } = req.body;
+
+  if (!firstName)
+    return res.status(402).json({ message: "firstName not found" });
+  if (!lastName) return res.status(402).json({ message: "lastName not found" });
+  if (!email) return res.status(402).json({ message: "email not found" });
+  if (!password) return res.status(402).json({ message: "Password not found" });
+
+  const signup = new signUpModel(firstName, lastName, email, password);
   try {
     await signup.save();
     res.send(signup);

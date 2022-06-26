@@ -30,6 +30,8 @@ export default function SignUp() {
   const [password, setPassword] = React.useState("");
   const passwordHandler = (event) => setPassword(event.target.value);
 
+  const [loading, setLoading] = React.useState(false);
+
   // ******************** SIGN UP HANDLER *******************************
   const signUpData = {
     firstName: firstName,
@@ -38,7 +40,9 @@ export default function SignUp() {
     password: password,
   };
   const signUpHandler = (event) => {
+    setLoading(true);
     event.preventDefault();
+
     // Calling sign up api
     userSignUp(signUpData);
     // setFirstName("");
@@ -139,6 +143,7 @@ export default function SignUp() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign Up
+              {/* {loading ? "Signing Up..." : "Sign Up"} */}
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

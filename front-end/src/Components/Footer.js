@@ -5,42 +5,42 @@ const Footer = () => {
   return (
     <div className="footer_container">
       <div className="footer_header">
-        <div>Retro Book</div>
-        <div>Fairy Tail</div>
-        <div>Others Book</div>
+        <div>Retro Movies</div>
+        <div>Action Movies</div>
+        <div>Others Movies</div>
         <div>Contacts</div>
       </div>
 
       {/* books */}
       <div className="books_name">
-        <div>Book One</div>
-        <div>Book Two</div>
-        <div>Book Three</div>
-        <div>Book Four</div>
+        <div>Movie One</div>
+        <div>Movie Two</div>
+        <div>Movie Three</div>
+        <div>Movie Four</div>
       </div>
       <div className="books_name">
-        <div>Book One</div>
-        <div>Book Two</div>
-        <div>Book Three</div>
-        <div>Book Four</div>
+        <div>Movie One</div>
+        <div>Movie Two</div>
+        <div>Movie Three</div>
+        <div>Movie Four</div>
       </div>
       <div className="books_name">
-        <div>Book One</div>
-        <div>Book Two</div>
-        <div>Book Three</div>
-        <div>Book Four</div>
+        <div>Movie One</div>
+        <div>Movie Two</div>
+        <div>Movie Three</div>
+        <div>Movie Four</div>
       </div>
       <div className="books_name">
-        <div>Book One</div>
-        <div>Book Two</div>
-        <div>Book Three</div>
-        <div>Book Four</div>
+        <div>Movie One</div>
+        <div>Movie Two</div>
+        <div>Movie Three</div>
+        <div>Movie Four</div>
       </div>
       <div className="books_name">
-        <div>Book One</div>
-        <div>Book Two</div>
-        <div>Book Three</div>
-        <div>Book Four</div>
+        <div>Movie One</div>
+        <div>Movie Two</div>
+        <div>Movie Three</div>
+        <div>Movie Four</div>
       </div>
     </div>
   );
