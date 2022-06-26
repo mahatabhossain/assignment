@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 mongoose.set("debug", true);
 //**************DATABASE CONNECTION ESTABLISHMENT******************
 mongoose.connect(
-  "mongodb+srv://myNewDatabase:Mahatab123@cluster0.zhoox.mongodb.net/bookstoredb?retryWrites=true&w=majority",
+  "mongodb+srv://assignment:zsTQRFTl0tF8uH0V@cluster0.zhoox.mongodb.net/moviedb?retryWrites=true&w=majority",
 
   {
     useNewUrlParser: true,

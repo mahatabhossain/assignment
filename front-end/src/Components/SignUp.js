@@ -1,6 +1,8 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -31,7 +33,10 @@ export default function SignUp() {
   const passwordHandler = (event) => setPassword(event.target.value);
 
   const [loading, setLoading] = React.useState(false);
+  const [showSnakbar, setShowSnakebar] = React.useState(false);
+  const [snakbarMessage, setSnakbarMessage] = React.useState("");
 
+  const nav = useNavigate();
   // ******************** SIGN UP HANDLER *******************************
   const signUpData = {
     firstName: firstName,
@@ -39,16 +44,15 @@ export default function SignUp() {
     email: email,
     password: password,
   };
-  const signUpHandler = (event) => {
+  const signUpHandler = async (event) => {
     setLoading(true);
     event.preventDefault();
-
     // Calling sign up api
-    userSignUp(signUpData);
-    // setFirstName("");
-    // setLastName("");
-    // setEmail("");
-    // setPassword("");
+    await userSignUp(signUpData);
+    setSnakbarMessage("Succesfully signed up");
+    setShowSnakebar(true);
+    setLoading(false);
+    nav("/signin");
   };
 
   return (
@@ -142,9 +146,17 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
-              {/* {loading ? "Signing Up..." : "Sign Up"} */}
+              {loading ? "Signing Up..." : "Sign Up"}
             </Button>
+            {showSnakbar ? (
+              <Snackbar
+                open={true}
+                message={snakbarMessage}
+                autoHideDuration={6000}
+              />
+            ) : (
+              ""
+            )}
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/signin" variant="body2">
